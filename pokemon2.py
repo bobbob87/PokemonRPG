@@ -1,7 +1,6 @@
-import os
+import os #This was required to make VLC player import work. IDK why
 os.add_dll_directory(r'C:\Program Files\VideoLAN\VLC')
 import time,sys,vlc  #Imports a module to add a pause, a module to make typing look realistic, and vlc music player
-
 
 
 
@@ -25,16 +24,16 @@ flower = 0
 
 required = ("\nUse only A, B, or C\n") #Cutting down on duplication
 
-p = vlc.MediaPlayer("file:///C:/Users/Larkenor\Music/PokemonThemeSong.mp3")
-p.play()
+
 
 #The story is broken into sections, starting with "intro"
 def intro():
-  sprint ("Welcome trainer, to the Pokémon Center! What is your name? ")
+  sprint ("Welcome trainer, to the Pokémon Center! My name is Ellie. What is your name? ")
   myName = input()
   sprint ("It is good to meet you, " + myName + ". I see you don\'t have a pokemon of your own yet!")
+  time.sleep(1)
   sprint ("How would you feel about helping me out with a job and I\'ll give you one of my basic pokemon?")
-  time.sleep(2)
+  time.sleep(1.5)
   print ("""  A. Sounds good!
   B. I'm way too busy to help you.
   C. Take a nap""")
@@ -44,6 +43,8 @@ def intro():
   elif choice in answer_B:
     sprint ("\nHow rude. You are hereby banned from this Pokémon Center! "
     "\n\nGame over!")
+    time.sleep(3)
+    intro()
   elif choice in answer_C:
     option_run()
   else:
@@ -63,6 +64,7 @@ def option_yes():
     sprint ("\nYou decided to throw another rock, as if the first " 
     "rock thrown did much damage. The rock flew well over the "
     "orcs head. You missed. \n\nYou died!")
+    intro()
   elif choice in answer_C:
     option_cave()
   else:
@@ -108,12 +110,16 @@ def option_cave():
     option_cave()
 
 def option_run():
-  sprint ("\nYou run as quickly as possible, but the orc's "
-  "speed is too great. You will:")
+  sprint ("You lie down in the corner of the room and allow your eylids to slowly slide over your eyeballs. You drift into a peaceful sleep.")
+  time.sleep(2)
+  sprint ("Snore...............Snore.................Snore")
+  time.sleep(2)
+  sprint ("You awake to the smiling face of Ellie")
   time.sleep(1)
-  print ("""  A. Hide behind boulder
-  B. Trapped, so you fight
-  C. Run towards an abandoned town""")
+  sprint ("Good morning . How was your nap?")
+  print ("""  A. Great!
+  B. Meh.
+  C. Terrible!!!""")
   choice = input(">>> ")
   if choice in answer_A:
     sprint ("You're easily spotted. "
@@ -150,5 +156,8 @@ def option_town():
   else: #If the user didn't grab the sword
      sprint ("\nMaybe you should have picked up the flower. "
      "\n\nYou died!")
-
 intro()
+
+p = vlc.MediaPlayer("file:///C:/Users/Larkenor\Music/PokemonThemeSong.mp3")
+
+p.play()
