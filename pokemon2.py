@@ -1,6 +1,4 @@
-import os #This was required to make VLC player import work. IDK why
-os.add_dll_directory(r'C:\Program Files\VideoLAN\VLC')
-import time,sys,vlc  #Imports a module to add a pause, a module to make typing look realistic, and vlc music player
+import time,sys  #Imports a module to add a pause, a module to make typing look realistic, and vlc music player
 
 
 
