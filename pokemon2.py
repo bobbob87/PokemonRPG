@@ -28,7 +28,7 @@ required = ("\nUse only A, B, or C\n") #Cutting down on duplication
 
 #The story is broken into sections, starting with "intro"
 def intro():
-  sprint ("Welcome trainer, to the Pokémon Center! My name is Ellie. What is your name? ")
+  sprint ("Welcome trainer, to the Motostoke Pokémon Center! My name is Ellie. What is your name? ")
   myName = input()
   sprint ("It is good to meet you, " + myName + ". I see you don\'t have a pokemon of your own yet!")
   time.sleep(1)
@@ -52,55 +52,50 @@ def intro():
     intro()
 
 def option_yes(): 
-  sprint ("\nThat's great to hear. I need you to go outside and look for a man in a black coat. Once you've found him, ask him when the \"delivery\" will get here. Make sure no one hears you ask, this is a private matter! ")
+  sprint ("\nThat's great to hear. I need you to go outside and look for a man in a black coat. "
+          "Once you've found him, ask him when the \"delivery\" will get here. Make sure no one hears you ask, this is a private matter! ")
   time.sleep(1)
   print ("""  A. Too tired. Need nap.
-  B. Go outside and look for the man
-  C. Try to steal all the Pokémon at the center """)
+  B. Go outside and look for the man.
+  C. Exit and try to find a Pokémon on your own! """)
   choice = input(">>> ")
   if choice in answer_A:
     option_nap()
   elif choice in answer_B:
     sprint ("\nYou exit the Pokémon Center and look around. You see a man 30 feet away standing by a fountain.")
   elif choice in answer_C:
-    option_cave()
+    option_selfhelp()
   else:
     print (required)
     option_rock()
 
-def option_cave():
-  sprint ("\nYou were hesitant, since the cave was dark and "
-  "ominous. Before you fully enter, you notice a shiny sword on "
-  "the ground. Do you pick up a sword. Y/N?")
+def option_selfhelp():
+  sprint ("\nYou walk outside and don't even notice the man in the black coat, just down the road. "
+          "Straight ahead you see the sparkling river, to the left the road leads to the outskirts of Motostoke, and to the right the Galar mine. "
+          "While glancing around, your eyes are drawn towards something sparkling in the midday sun, it's an object stuck in the mud down on the riverbank. "
+          "Not able to help yourself, you walk towards it. You see it is a shiny Pokéball on the ground! Do you pick it up? Y/N?")
   choice = input(">>> ")
   if choice in yes:
-    sword = 1 #adds a sword
+    pokeball = 1 #adds a Pokéball
   else:
-    sword = 0
+    pokeball = 0
   print ("\nWhat do you do next?")
   time.sleep(1)
-  print ("""  A. Hide in silence
-  B. Fight
-  C. Run""")
+  print ("""  A. go to Motostoke outskirts.
+  B. Head to the Galar Mine.
+  C. Rest by the river""")
   choice = input(">>> ")
   if choice in answer_A:
-    sprint ("\nReally? You're going to hide in the dark? I think "
-    "orcs can see very well in the dark, right? Not sure, but "
-    "I'm going with YES, so...\n\nYou died!")
+    sprint ("\nHolding your new prized Pokéball in your hand, you head towards the outskirts of town.")
   elif choice in answer_B:
    if sword > 0:
-    sprint ("\nYou laid in wait. The shimmering sword attracted "
-    "the orc, which thought you were no match. As he walked "
-    "closer and closer, your heart beat rapidly. As the orc "
-    "reached out to grab the sword, you pierced the blade into "
-    "its chest. \n\nYou survived!")
+    sprint ("\nYou've always been a big fan of mines, even if they aren't yours. You head west to the Galar Mine.")
    else: #If the user didn't grab the sword
-     sprint ("\nYou should have picked up that sword. You're "
-     "defenseless. \n\nYou died!")
+     sprint ("\n")
   elif choice in answer_C:
-    sprint ("As the orc enters the dark cave, you sliently "
-    "sneak out. You're several feet away, but the orc turns "
-    "around and sees you running.")
+    sprint ("The soft, rustling grass is so inviting. It has been a stressful day."
+            "\"Yeah, why not? you deserve this!\" You think to yourself as you plop "
+            "down, quickly falling asleep in the warm sun.")
     option_run()
   else:
     print (required)
@@ -113,24 +108,22 @@ def option_nap():
   time.sleep(2)
   sprint ("You awake to the smiling face of Ellie")
   time.sleep(1)
-  sprint ("Good morning . How was your nap?")
+  sprint ("\"Good morning sunshine. How was your nap?\", she says sweetly.")
   print ("""  A. Great!
   B. Meh.
   C. Terrible!!!""")
   choice = input(">>> ")
   if choice in answer_A:
-    sprint ("You're easily spotted. "
-    "\n\nYou died!")
+    sprint ("\"Oh that's great to hear. Now do you think you can go find the man in the black coat? He doesn't like to be kept waiting.")
   elif choice in answer_B:
-    sprint ("\nYou're no match for an orc. "
-    "\n\nYou died!")
+    sprint ("\"Well you probably just need some energy, here try some of my famous Sour Whipped-Cream Curry. It's Copperajah class you know!\"")
   elif choice in answer_C:
-    option_town()
+    option_terrible()
   else:
     print (required)
     option_run()
     
-def option_town():
+def option_terrible():
   sprint ("\nWhile frantically running, you notice a rusted "
   "sword lying in the mud. You quickly reach down and grab it, "
   "but miss. You try to calm your heavy breathing as you hide "
