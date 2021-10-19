@@ -19,7 +19,7 @@ def sprint(str):
      time.sleep(3./90)
 
 #Grabbing objects
-sword = 0
+pokeball = 0
 flower = 0
 
 required = ("\nUse only A, B, or C\n") #Cutting down on duplication
@@ -54,17 +54,14 @@ def intro():
 def option_yes(): 
   sprint ("\nThat's great to hear. I need you to go outside and look for a man in a black coat. Once you've found him, ask him when the \"delivery\" will get here. Make sure no one hears you ask, this is a private matter! ")
   time.sleep(1)
-  print ("""  A. Run
-  B. Throw another rock
-  C. Run towards a nearby cave""")
+  print ("""  A. Too tired. Need nap.
+  B. Go outside and look for the man
+  C. Try to steal all the Pokémon at the center """)
   choice = input(">>> ")
   if choice in answer_A:
-    option_run()
+    option_nap()
   elif choice in answer_B:
-    sprint ("\nYou decided to throw another rock, as if the first " 
-    "rock thrown did much damage. The rock flew well over the "
-    "orcs head. You missed. \n\nYou died!")
-    intro()
+    sprint ("\nYou exit the Pokémon Center and look around. You see a man 30 feet away standing by a fountain.")
   elif choice in answer_C:
     option_cave()
   else:
@@ -109,7 +106,7 @@ def option_cave():
     print (required)
     option_cave()
 
-def option_run():
+def option_nap():
   sprint ("You lie down in the corner of the room and allow your eylids to slowly slide over your eyeballs. You drift into a peaceful sleep.")
   time.sleep(2)
   sprint ("Snore...............Snore.................Snore")
